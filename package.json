@@ -1,0 +1,23 @@
+{
+  "name": "mini-editor",
+  "version": "1.0.0",
+  "description": "a editor build by webpack + ts",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --config webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/86driver/mini-editor.git"
+  },
+  "keywords": [
+    "editor",
+    "ts"
+  ],
+  "author": "86deriver",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/86driver/mini-editor/issues"
+  },
+  "homepage": "https://github.com/86driver/mini-editor#readme"
+}
