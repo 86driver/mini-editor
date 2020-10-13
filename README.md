@@ -19,4 +19,5 @@
 - 防止脚本注入
 - 引入 typescript
 - 在掘金上写一篇 blog
+- babel-core
 - ...
