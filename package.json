@@ -4,6 +4,7 @@
   "description": "a editor build by webpack + ts",
   "main": "index.js",
   "scripts": {
+    "start": "webpack-dev-server --open",
     "build": "webpack --config webpack.config.js"
   },
   "repository": {
@@ -19,5 +20,15 @@
   "bugs": {
     "url": "https://github.com/86driver/mini-editor/issues"
   },
-  "homepage": "https://github.com/86driver/mini-editor#readme"
+  "homepage": "https://github.com/86driver/mini-editor#readme",
+  "devDependencies": {
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^4.3.0",
+    "style-loader": "^2.0.0"
+  },
+  "dependencies": {
+    "html-webpack-plugin": "^3.2.0",
+    "webpack": "^3.0.0",
+    "webpack-dev-server": "^2.9.1"
+  }
 }
