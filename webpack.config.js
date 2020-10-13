@@ -2,12 +2,24 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin') // 清理/dist文件夹
 
+const env = process.env.NODE_ENV
 
-// 合并src/index.html
+// 合并./index.html
 const htmlPlugin = new HtmlWebpackPlugin({
-    template: path.join(__dirname, './src/index.html'),
+    template: path.join(__dirname, './index.html'),
     filename: 'index.html' // 生成的内存中首页的名称
 });
+
+// 每次打包清理dist文件
+const cleanWebpackPlugin = new CleanWebpackPlugin()
+
+
+// 分环境注入构建插件
+const devPlugins = [htmlPlugin]
+const prodPlugins = [cleanWebpackPlugin]
+const createPlugin = () => {
+    return env === 'dev' ? devPlugins : prodPlugins
+}
 
 
 module.exports = {
@@ -33,9 +45,6 @@ module.exports = {
             }
         ]
     },
-    plugins: [
-        htmlPlugin,
-        new CleanWebpackPlugin() // clean-webpack-plugin 将删除webpack的output.path目录中的所有文件
-    ]
+    plugins: createPlugin()
 }
 
