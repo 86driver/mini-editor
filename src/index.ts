@@ -11,6 +11,7 @@ function MiniEditor(el: string, options?: object) {
   toolbarDom.innerHTML = '这里是toolbar区域'
   let contentDom = domCreateElement('div')
   contentDom.innerHTML = '这里是可编辑区域'
+  contentDom.setAttribute('contenteditable', 'true')
   domFragment.appendChild(toolbarDom)
   domFragment.appendChild(contentDom)
   domInsert(domQuerySelector(el), domFragment)
