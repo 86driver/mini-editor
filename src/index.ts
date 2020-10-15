@@ -4,8 +4,10 @@ import {
   domCreateElement,
   domCreateDocumentFragment
 } from './utils/dom'
-import './assets/styles/test.css'
-function MiniEditor(el: string, options?: object) {
+
+import { Options } from './types/index'
+import './assets/styles/toolbar.css'
+function MiniEditor(el: string, options?: Options) {
   let domFragment = domCreateDocumentFragment()
   let toolbarDom = domCreateElement('div')
   toolbarDom.innerHTML = '这里是toolbar区域'
