@@ -42,6 +42,20 @@ module.exports = {
         test: /\.ts$/,
         exclude: /node_modules/,
         use: ['ts-loader']
+      },
+      {
+        test: /\.less$/,
+        use: [
+          {
+            loader: 'style-loader'
+          },
+          {
+            loader: 'css-loader'
+          },
+          {
+            loader: 'less-loader'
+          },
+        ]
       }
     ]
   },

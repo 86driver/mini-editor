@@ -19,5 +19,5 @@
 - ~~引入 typescript，tslint~~
 - 防止脚本注入
 - 在掘金上写一篇 blog
-- less
+- ~~引入 less~~
 - ...
