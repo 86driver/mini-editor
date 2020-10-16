@@ -1,1 +1,1 @@
-export function insetPlugin(pluginOptions) {}
+export function insetPlugin(plugins) {}
