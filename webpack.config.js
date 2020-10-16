@@ -1,6 +1,7 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin') // 清理/dist文件夹
+const UglifyJsWebpackPlugin = require('uglifyjs-webpack-plugin')
 
 const env = process.env.NODE_ENV
 
@@ -13,9 +14,12 @@ const htmlPlugin = new HtmlWebpackPlugin({
 // 每次打包清理dist文件
 const cleanWebpackPlugin = new CleanWebpackPlugin()
 
+// 压缩打包后的代码
+const UglifyJsPlugin = new UglifyJsWebpackPlugin()
+
 // 分环境注入构建插件
 const devPlugins = [htmlPlugin]
-const prodPlugins = [cleanWebpackPlugin]
+const prodPlugins = [cleanWebpackPlugin, UglifyJsPlugin]
 const createPlugin = () => {
   return env === 'dev' ? devPlugins : prodPlugins
 }
