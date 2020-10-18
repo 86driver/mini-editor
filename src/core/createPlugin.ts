@@ -1,19 +1,17 @@
 import { pluginOptions } from '../types/index'
 import { domCreateElement } from '../utils/dom'
 export function createPlugin(pluginOptions: pluginOptions): HTMLElement {
-  let pluginDom = domCreateElement('div')
+  let pluginDom = domCreateElement('button')
   pluginDom.onclick = () => {
-    if (pluginOptions.openType === 'click') {
-      console.log('openType:click')
-    }
-    if (pluginOptions.isExtenal && pluginOptions.callback) {
-      pluginOptions.callback()
+    if (pluginOptions.isExtenal && !pluginOptions.callback) {
+      console.error('外置组件需要传入callback')
     } else {
-      console.log(222)
+      pluginOptions.callback()
     }
-    if (pluginOptions.showType === 'text') {
-      pluginDom.innerHTML = `<span>${pluginOptions.label}</span>`
-    }
+  }
+  pluginDom.classList.add('m-n-toolbar-item')
+  if (pluginOptions.showType === 'text') {
+    pluginDom.innerHTML = `<span>${pluginOptions.label}</span>`
   }
   return pluginDom
 }

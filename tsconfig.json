@@ -10,7 +10,8 @@
     "allowSyntheticDefaultImports": true,
     "declarationDir": "types",
     "outDir": "dist",
-    "typeRoots": ["node_modules/@types"]
+    "typeRoots": ["node_modules/@types"],
+    "suppressImplicitAnyIndexErrors":true,
   },
   "include": ["src"]
 }

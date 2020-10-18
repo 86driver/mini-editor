@@ -1,30 +1,34 @@
 import {
   domInsert,
-  domQuerySelector,
+  domGetElementById,
   domCreateElement,
   domCreateDocumentFragment
 } from './utils/dom'
 
-import { Options } from './types/index'
+import { Editor, Options } from './types/index'
+import { createToolbarDom } from './core/toolbar'
+import { createContainer } from './core/container'
+import { initProto } from './core/initProto'
 import './assets/styles/index.less'
-function MiniEditor(el: string, options?: Options) {
+function MiniEditor(this: Editor, el: string, options?: Options) {
   // todo 拆
+  let editor = this
   options = options ? options : {}
+  editor.options = options
+  editor.el = el
+  initProto(editor, options)
   let domFragment = domCreateDocumentFragment()
-  let editorDom = domCreateElement('div')
-  let toolbarDom = domCreateElement('div')
-  toolbarDom.innerHTML = '这里是toolbar区域'
-  toolbarDom.classList.add('m-n-toolbar')
-  let container = domCreateElement('div')
-  container.innerHTML = '这里是可编辑区域'
-  container.setAttribute('contenteditable', 'true')
-  container.classList.add('m-n-container')
-  editorDom.classList.add('m-n-editor')
-  editorDom.appendChild(toolbarDom)
-  editorDom.appendChild(container)
-  editorDom.style.width = options.width ? `${options.width}px` : '300px'
-  domFragment.appendChild(editorDom)
-  domInsert(domQuerySelector(el), domFragment)
+  let toolbarDom = createToolbarDom(options)
+  let container = createContainer()
+  let editorWrap = domCreateElement('div')
+  editorWrap.appendChild(toolbarDom)
+  editor.toolbarDom = toolbarDom
+  editorWrap.appendChild(container)
+  editor.container = container
+  editorWrap.style.width = options.width ? `${options.width}px` : '300px'
+  editorWrap.classList.add('m-n-editor')
+  domFragment.appendChild(editorWrap)
+  domInsert(domGetElementById(el), domFragment)
 }
 
 export default MiniEditor
