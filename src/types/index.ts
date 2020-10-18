@@ -5,7 +5,6 @@ export interface Options {
   expandToolbar?: Array<pluginOptions> // 扩展组件
 }
 
-// tslint:disable-next-line: class-name
 export interface pluginOptions {
   name: string
   openType?: string // click，dropDown
