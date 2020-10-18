@@ -1,9 +1,11 @@
+@activeColor: #1296db;
+
 .m-n-toolbar {
   border-bottom: 1px solid #cbe1ff;
   display: flex;
 
   .m-n-toolbar-item {
-    padding: 10px;
+    //padding: 10px;
     cursor: pointer;
     border: none;
     background: #fff;
@@ -14,5 +16,14 @@
     &:focus {
       outline: none;
     }
+
+    i {
+      display: inline-block;
+      padding: 10px;
+    }
+  }
+
+  .m-n-toolbar-active {
+    color: @activeColor;
   }
 }

@@ -2,6 +2,10 @@ export function domQuerySelector(el: string): HTMLElement {
   return document.querySelector(el) as HTMLElement
 }
 
+export function domQuerySelectorAll(el: string): NodeListOf<Element> {
+  return document.querySelectorAll(el)
+}
+
 export function domGetElementById(el: string): HTMLElement {
   return document.getElementById(el) as HTMLElement
 }

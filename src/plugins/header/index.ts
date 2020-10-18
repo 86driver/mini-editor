@@ -11,7 +11,7 @@ export default function (): HTMLElement {
     }
   }
   let plugin = createPlugin(pluginOption)
-  let iconfontDom = plugin.getElementsByTagName('i')[0]
+  let iconfontDom = plugin.getElementsByClassName('m-n-icon')[0]
   iconfontDom.classList.add('icon-header')
   return plugin
 }

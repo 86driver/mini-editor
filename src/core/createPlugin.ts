@@ -6,7 +6,7 @@ export function createPlugin(pluginOptions: pluginOptions): HTMLElement {
     if (pluginOptions.isExtenal && !pluginOptions.callback) {
       console.error('外置组件需要传入callback')
     } else {
-      pluginOptions.callback()
+      pluginOptions.callback(pluginDom)
     }
   }
   pluginDom.classList.add('m-n-toolbar-item')
