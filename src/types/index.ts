@@ -9,8 +9,6 @@ export interface Options {
 export interface pluginOptions {
   name: string
   openType?: string // click，dropDown
-  showType: string // img text
-  label: string // 展示内容
   isExtenal?: boolean
   callback: (val?: any) => any
 }

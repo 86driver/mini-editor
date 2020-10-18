@@ -48,6 +48,10 @@ module.exports = {
         use: ['ts-loader']
       },
       {
+        test: /\.(woff|woff2|eot|ttf|otf|svg)$/,
+        use: 'file-loader'
+      },
+      {
         test: /\.less$/,
         use: [
           {
@@ -58,7 +62,7 @@ module.exports = {
           },
           {
             loader: 'less-loader'
-          },
+          }
         ]
       }
     ]

@@ -7,12 +7,12 @@ export default function (): HTMLElement {
   let pluginOption: pluginOptions = {
     name: 'bold',
     openType: 'click',
-    showType: 'text',
-    label: '加粗',
     callback: function () {
       execCommand('Bold')
     }
   }
   let plugin = createPlugin(pluginOption)
+  let iconfontDom = plugin.getElementsByTagName('i')[0]
+  iconfontDom.classList.add('icon-bold')
   return plugin
 }

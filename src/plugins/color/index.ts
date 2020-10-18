@@ -6,12 +6,12 @@ export default function (): HTMLElement {
   let pluginOption: pluginOptions = {
     name: 'color',
     openType: 'click',
-    showType: 'text',
-    label: '颜色',
     callback: function () {
       console.log('设置颜色')
     }
   }
   let plugin = createPlugin(pluginOption)
+  let iconfontDom = plugin.getElementsByTagName('i')[0]
+  iconfontDom.classList.add('icon-ColorLens')
   return plugin
 }

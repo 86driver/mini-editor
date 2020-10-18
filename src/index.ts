@@ -10,6 +10,7 @@ import { createToolbarDom } from './core/toolbar'
 import { createContainer } from './core/container'
 import { initProto } from './core/initProto'
 import './assets/styles/index.less'
+import './assets/font/iconfont.css'
 function MiniEditor(this: Editor, el: string, options?: Options) {
   // todo 拆
   let editor = this

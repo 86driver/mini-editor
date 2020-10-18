@@ -1,21 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>mini-editor插件</title>
+  </head>
 
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>mini-editor插件</title>
-</head>
-
-<body>
-	<div id="editor"></div>
-	<script src="../dist/miniEditor.js"></script>
-</body>
-<script>
-	new MiniEditor('#editor', {
-		width: 500
-	})
-</script>
-
+  <body>
+    <div id="editor"></div>
+    <script src="../dist/miniEditor.js"></script>
+  </body>
+  <script>
+    new MiniEditor('editor', {
+      width: 500,
+      internalToolbar: ['bold', 'color', 'header'],
+      expandToolbar: [
+        {
+          name: 'Itatic',
+          openType: 'click',
+          isExtenal: true,
+          callback: () => {
+            console.log('外置组件：斜体')
+          }
+        }
+      ]
+    })
+  </script>
 </html>

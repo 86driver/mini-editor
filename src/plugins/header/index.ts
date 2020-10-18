@@ -6,12 +6,12 @@ export default function (): HTMLElement {
   let pluginOption: pluginOptions = {
     name: 'color',
     openType: 'click',
-    showType: 'text',
-    label: '设置标题',
     callback: function () {
       console.log('设置标题')
     }
   }
   let plugin = createPlugin(pluginOption)
+  let iconfontDom = plugin.getElementsByTagName('i')[0]
+  iconfontDom.classList.add('icon-header')
   return plugin
 }

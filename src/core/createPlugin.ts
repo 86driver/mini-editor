@@ -10,8 +10,6 @@ export function createPlugin(pluginOptions: pluginOptions): HTMLElement {
     }
   }
   pluginDom.classList.add('m-n-toolbar-item')
-  if (pluginOptions.showType === 'text') {
-    pluginDom.innerHTML = `<span>${pluginOptions.label}</span>`
-  }
+  pluginDom.innerHTML = `<i class="m-n-icon"></i>`
   return pluginDom
 }
