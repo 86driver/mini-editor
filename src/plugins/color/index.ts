@@ -1,16 +1,18 @@
 import { createPlugin } from '../../core/createPlugin'
 import { pluginOptions } from '../../types/index'
-import { clearActiveClass } from '../../utils/common'
+import { hasClass } from '../../utils/common'
 
 export default function (): HTMLElement {
-  // this.options = pluginOption
   let pluginOption: pluginOptions = {
     name: 'color',
-    openType: 'click',
+    openType: 'dropDown',
+    dropDownList: [{ label: '红色' }, { label: '绿色' }, { label: '蓝色' }],
     callback: function (pluginDom) {
-      console.log('设置颜色')
-      // clearActiveClass('.m-n-toolbar-item')
-      pluginDom.classList.add('m-n-toolbar-active')
+      if (hasClass(pluginDom, 'm-n-toolbar-active')) {
+        pluginDom.classList.remove('m-n-toolbar-active')
+      } else {
+        pluginDom.classList.add('m-n-toolbar-active')
+      }
     }
   }
   let plugin = createPlugin(pluginOption)

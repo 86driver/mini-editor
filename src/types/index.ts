@@ -5,11 +5,17 @@ export interface Options {
   expandToolbar?: Array<pluginOptions> // 扩展组件
 }
 
+export interface dropDownItems {
+  label: string
+  [propName: string]: any
+}
+
 export interface pluginOptions {
   name: string
   openType?: string // click，dropDown
+  dropDownList?: Array<dropDownItems>
   isExtenal?: boolean
-  callback: (val?: any) => any
+  callback: (...val: any) => any
 }
 
 export class Editor {

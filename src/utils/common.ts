@@ -24,3 +24,7 @@ export function clearActiveClass(el: string) {
     toolbarItemDoms[index].classList.remove('m-n-toolbar-active')
   }
 }
+
+export function hasClass(element: HTMLElement, className: string): boolean {
+  return (' ' + element.className + ' ').indexOf(' ' + className + ' ') > -1
+}

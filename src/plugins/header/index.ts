@@ -1,13 +1,18 @@
 import { createPlugin } from '../../core/createPlugin'
 import { pluginOptions } from '../../types/index'
+import { hasClass } from '../../utils/common'
 
 export default function (): HTMLElement {
-  // this.options = pluginOption
   let pluginOption: pluginOptions = {
     name: 'color',
     openType: 'click',
-    callback: function () {
+    callback: function (pluginDom) {
       console.log('设置标题')
+      if (hasClass(pluginDom, 'm-n-toolbar-active')) {
+        pluginDom.classList.remove('m-n-toolbar-active')
+      } else {
+        pluginDom.classList.add('m-n-toolbar-active')
+      }
     }
   }
   let plugin = createPlugin(pluginOption)
