@@ -15,7 +15,9 @@ export interface pluginOptions {
   openType?: string // click，dropDown
   dropDownList?: Array<dropDownItems>
   isExtenal?: boolean
+  iconName?: string
   callback: (...val: any) => any
+  dropDownCallback?: (...val: any) => any
 }
 
 export class Editor {
@@ -23,9 +25,11 @@ export class Editor {
   el: string
   toolbarDom!: HTMLElement
   container!: HTMLElement
+  savedRange!: Range | null
   constructor(el: string, options: object) {
     this.el = el
     this.options = options
   }
   getHtml!: () => string
+  getSavedRange!: () => Range | null
 }

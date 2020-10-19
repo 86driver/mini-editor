@@ -4,15 +4,33 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./myFont/iconfont.css" />
     <title>mini-editor插件</title>
+    <style>
+      .wrap {
+        display: flex;
+        margin-top: 20px;
+        justify-content: space-around;
+      }
+    </style>
   </head>
 
   <body>
-    <div id="editor"></div>
-    <script src="../dist/miniEditor.js"></script>
+    <div class="wrap">
+      <div>
+        <div>无配置</div>
+        <div id="editor1"></div>
+      </div>
+      <div>
+        <div>带自定义组件（斜体）</div>
+        <div id="editor2"></div>
+      </div>
+    </div>
   </body>
+  <script src="../dist/miniEditor.js"></script>
   <script>
-    new MiniEditor('editor', {
+    new MiniEditor('editor1')
+    new MiniEditor('editor2', {
       width: 500,
       internalToolbar: ['bold', 'color', 'header'],
       expandToolbar: [
@@ -20,8 +38,9 @@
           name: 'Itatic',
           openType: 'click',
           isExtenal: true,
-          callback: () => {
-            console.log('外置组件：斜体')
+          iconName: 'icon-ziyuan',
+          callback: function (editor) {
+            document.execCommand('italic')
           }
         }
       ]

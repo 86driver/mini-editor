@@ -19,11 +19,12 @@ function MiniEditor(this: Editor, el: string, options?: Options) {
   editor.el = el
   initProto(editor, options)
   let domFragment = domCreateDocumentFragment()
-  let toolbarDom = createToolbarDom(options)
-  let container = createContainer()
+  let toolbarDom = createToolbarDom(editor, options)
+  let container = createContainer(editor)
   let editorWrap = domCreateElement('div')
   editorWrap.appendChild(toolbarDom)
   editor.toolbarDom = toolbarDom
+  editor.savedRange = null
   editorWrap.appendChild(container)
   editor.container = container
   editorWrap.style.width = options.width ? `${options.width}px` : '300px'

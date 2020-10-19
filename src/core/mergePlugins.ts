@@ -1,9 +1,10 @@
 import innternalPluginsCtor from '../plugins/index'
-import { pluginOptions } from '../types/index'
+import { Editor, pluginOptions } from '../types/index'
 import { isArray, error } from '../utils/common'
 import { createPlugin } from './createPlugin'
 
 export function mergePlugins(
+  editor: Editor,
   internalToolbar?: Array<string>,
   expandToolbar?: Array<pluginOptions>
 ) {
@@ -11,7 +12,7 @@ export function mergePlugins(
   let expandPlugins: Array<HTMLElement> = []
   if (!internalToolbar) {
     for (let ctor in innternalPluginsCtor) {
-      internalPlugins.push(innternalPluginsCtor[ctor]())
+      internalPlugins.push(innternalPluginsCtor[ctor](editor))
     }
   } else {
     if (!isArray(internalToolbar)) {
@@ -19,7 +20,7 @@ export function mergePlugins(
     } else {
       internalToolbar.map((item) => {
         if (innternalPluginsCtor[item]) {
-          internalPlugins.push(innternalPluginsCtor[item]())
+          internalPlugins.push(innternalPluginsCtor[item](editor))
         }
       })
     }
@@ -29,7 +30,7 @@ export function mergePlugins(
       error('外置组件需要传入数组')
     } else {
       expandToolbar.map((item) => {
-        expandPlugins.push(createPlugin(item))
+        expandPlugins.push(createPlugin(editor, item))
       })
     }
   }

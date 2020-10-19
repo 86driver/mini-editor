@@ -1,12 +1,13 @@
 import { createPlugin } from '../../core/createPlugin'
-import { pluginOptions } from '../../types/index'
+import { Editor, pluginOptions } from '../../types/index'
 import { hasClass, hasSelection } from '../../utils/common'
 import { execCommand } from '../../utils/dom'
 
-export default function (): HTMLElement {
+export default function (editor: Editor): HTMLElement {
   let pluginOption: pluginOptions = {
     name: 'bold',
     openType: 'click',
+    iconName: 'icon-bold',
     callback: function (pluginDom) {
       if (hasSelection()) {
         if (hasClass(pluginDom, 'm-n-toolbar-active')) {
@@ -18,9 +19,6 @@ export default function (): HTMLElement {
       }
     }
   }
-  let plugin = createPlugin(pluginOption)
-  console.log(plugin)
-  let iconfontDom = plugin.getElementsByClassName('m-n-icon')[0]
-  iconfontDom.classList.add('icon-bold')
+  let plugin = createPlugin(editor, pluginOption)
   return plugin
 }

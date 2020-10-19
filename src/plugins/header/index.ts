@@ -1,13 +1,37 @@
 import { createPlugin } from '../../core/createPlugin'
-import { pluginOptions } from '../../types/index'
+import { dropDownItems, Editor, pluginOptions } from '../../types/index'
 import { hasClass } from '../../utils/common'
+import { execCommand } from '../../utils/dom'
 
-export default function (): HTMLElement {
+export default function (editor: Editor): HTMLElement {
   let pluginOption: pluginOptions = {
     name: 'color',
-    openType: 'click',
+    openType: 'dropDown',
+    iconName: 'icon-header',
+    dropDownList: [
+      { label: 'H1', value: 'red' },
+      { label: 'H2', value: 'green' },
+      { label: '正文', value: 'blue' }
+    ],
+    dropDownCallback: function (srcDom: HTMLElement, items: dropDownItems) {
+      if (editor.savedRange) {
+        let text = editor.savedRange.toString()
+        let hDom = ``
+        switch (items.label) {
+          case 'H1':
+            hDom = `<h1>${text}</h1>`
+            break
+          case 'H2':
+            hDom = `<h2>${text}</h2>`
+            break
+          case '正文':
+            hDom = `<span>${text}</span>`
+            break
+        }
+        execCommand('insertHTML', false, hDom)
+      }
+    },
     callback: function (pluginDom) {
-      console.log('设置标题')
       if (hasClass(pluginDom, 'm-n-toolbar-active')) {
         pluginDom.classList.remove('m-n-toolbar-active')
       } else {
@@ -15,8 +39,6 @@ export default function (): HTMLElement {
       }
     }
   }
-  let plugin = createPlugin(pluginOption)
-  let iconfontDom = plugin.getElementsByClassName('m-n-icon')[0]
-  iconfontDom.classList.add('icon-header')
+  let plugin = createPlugin(editor, pluginOption)
   return plugin
 }

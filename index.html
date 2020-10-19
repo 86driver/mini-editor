@@ -14,19 +14,8 @@
   <script>
     const editor = new MiniEditor('editor', {
       width: 500,
-      internalToolbar: ['bold', 'color', 'header'],
-      expandToolbar: [
-        {
-          name: 'Itatic',
-          openType: 'click',
-          isExtenal: true,
-          callback: () => {
-            console.log('外置组件：斜体')
-          }
-        }
-      ]
+      internalToolbar: ['bold', 'color', 'header']
     })
-    console.log(editor)
     document.getElementById('button').onclick = function () {
       console.log(editor.getHtml())
     }

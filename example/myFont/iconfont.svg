@@ -1,0 +1,29 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
+<!--
+2013-9-30: Created.
+-->
+<svg>
+<metadata>
+Created by iconfont
+</metadata>
+<defs>
+
+<font id="iconfont" horiz-adv-x="1024" >
+  <font-face
+    font-family="iconfont"
+    font-weight="500"
+    font-stretch="normal"
+    units-per-em="1024"
+    ascent="896"
+    descent="-128"
+  />
+    <missing-glyph />
+    
+    <glyph glyph-name="ziyuan" unicode="&#58895;" d="M896 736H384a32 32 0 0 0 0 64h512a32 32 0 0 0 0-64zM640-32H128a32 32 0 0 0 0 64h512a32 32 0 0 0 0-64zM384-32a28.8 28.8 0 0 0-10.24 0 31.36 31.36 0 0 0-19.84 40.32l256 768a32 32 0 0 0 60.16-20.48l-256-768a31.36 31.36 0 0 0-30.08-19.84z"  horiz-adv-x="1024" />
+
+    
+
+
+  </font>
+</defs></svg>

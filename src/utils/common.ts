@@ -1,4 +1,4 @@
-import { domQuerySelectorAll } from './dom'
+import { domQuerySelector, domQuerySelectorAll } from './dom'
 
 export function isArray(o: any) {
   return Object.prototype.toString.call(o) === '[object Array]'
@@ -27,4 +27,9 @@ export function clearActiveClass(el: string) {
 
 export function hasClass(element: HTMLElement, className: string): boolean {
   return (' ' + element.className + ' ').indexOf(' ' + className + ' ') > -1
+}
+
+export function removeDropDown() {
+  let dom = domQuerySelector('.m-n-dropdown-List')
+  document.body.removeChild(dom)
 }
