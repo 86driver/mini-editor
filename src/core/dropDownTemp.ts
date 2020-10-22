@@ -1,10 +1,11 @@
-import { dropDownItems, pluginOptions } from '../types'
+import { dropDownItems, Editor, pluginOptions } from '../types'
 import { hasClass, removeDropDown } from '../utils/common'
 import { domCreateElement, domQuerySelector } from '../utils/dom'
 export function showDropDownTemp(
   pluginOptions: pluginOptions,
   position: DOMRect,
-  yOffset: number
+  yOffset: number,
+  editor: Editor
 ) {
   let dropDownTempDom = domCreateElement('div')
   if (pluginOptions.dropDownList) {
@@ -26,6 +27,10 @@ export function showDropDownTemp(
         )
         removeDropDown()
       }
+      editor.saveRange()
+    }
+    dropDownTempDom.onmouseleave = function (event) {
+      removeDropDown()
     }
     dropDownTempDom.style.left = `${position.left}px`
     dropDownTempDom.style.top = `${position.top + yOffset}px`

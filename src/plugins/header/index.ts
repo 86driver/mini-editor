@@ -14,22 +14,20 @@ export default function (editor: Editor): HTMLElement {
       { label: '正文', value: 'blue' }
     ],
     dropDownCallback: function (srcDom: HTMLElement, items: dropDownItems) {
-      if (editor.savedRange) {
-        let text = editor.savedRange.toString()
-        let hDom = ``
-        switch (items.label) {
-          case 'H1':
-            hDom = `<h1>${text}</h1>`
-            break
-          case 'H2':
-            hDom = `<h2>${text}</h2>`
-            break
-          case '正文':
-            hDom = `<span>${text}</span>`
-            break
-        }
-        execCommand('insertHTML', false, hDom)
+      let text = editor.savedRange.toString()
+      let hDom = ``
+      switch (items.label) {
+        case 'H1':
+          hDom = `<h1>${text}</h1>`
+          break
+        case 'H2':
+          hDom = `<h2>${text}</h2>`
+          break
+        case '正文':
+          hDom = `<span>${text}</span>`
+          break
       }
+      execCommand('insertHTML', false, hDom)
     },
     callback: function (pluginDom) {
       // if (hasClass(pluginDom, 'm-n-toolbar-active')) {

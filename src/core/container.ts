@@ -6,13 +6,10 @@ export function createContainer(editor: Editor): HTMLElement {
   container.classList.add('m-n-container')
   container.onblur = function () {
     editor.saveRange()
+    console.log(editor.savedRange)
   }
   container.onkeyup = function () {
     editor.saveRange()
-  }
-  container.onmouseup = function () {}
-  container.onmousedown = function () {
-    console.log(editor.savedRange.toString())
   }
   return container
 }
