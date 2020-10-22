@@ -7,7 +7,6 @@ export function createPlugin(
   pluginOptions: pluginOptions
 ): HTMLElement {
   let pluginDom = domCreateElement('button')
-
   if (pluginOptions.openType === 'click') {
     pluginDom.onclick = () => {
       if (pluginOptions.isExtenal && !pluginOptions.callback) {

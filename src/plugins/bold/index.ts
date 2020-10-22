@@ -9,11 +9,11 @@ export default function (editor: Editor): HTMLElement {
     openType: 'click',
     iconName: 'icon-bold',
     callback: function (pluginDom) {
-      // if (hasClass(pluginDom, 'm-n-toolbar-active')) {
-      //   pluginDom.classList.remove('m-n-toolbar-active')
-      // } else {
-      //   pluginDom.classList.add('m-n-toolbar-active')
-      // }
+      if (hasClass(pluginDom, 'm-n-toolbar-active')) {
+        pluginDom.classList.remove('m-n-toolbar-active')
+      } else {
+        pluginDom.classList.add('m-n-toolbar-active')
+      }
       execCommand('Bold')
     }
   }
