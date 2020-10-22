@@ -25,11 +25,13 @@ export class Editor {
   el: string
   toolbarDom!: HTMLElement
   container!: HTMLElement
-  savedRange!: Range | null
+  savedRange!: Range
   constructor(el: string, options: object) {
     this.el = el
     this.options = options
   }
   getHtml!: () => string
-  getSavedRange!: () => Range | null
+  restoreRange!: () => void
+  saveRange!: () => void
+  isEmptyRange!: () => boolean
 }

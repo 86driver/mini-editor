@@ -10,12 +10,15 @@ export function createPlugin(
     if (pluginOptions.isExtenal && !pluginOptions.callback) {
       console.error('外置组件需要传入callback')
     } else {
+      editor.restoreRange()
       if (pluginOptions.openType === 'dropDown' && pluginOptions.dropDownList) {
         let position = pluginDom.getBoundingClientRect()
         const yOffset = pluginDom.offsetHeight
         showDropDownTemp(pluginOptions, position, yOffset)
       }
       pluginOptions.callback(pluginDom)
+      // 操作结束之后更新选区
+      editor.saveRange()
     }
   }
   pluginDom.classList.add('m-n-toolbar-item')

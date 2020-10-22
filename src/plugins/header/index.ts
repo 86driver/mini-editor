@@ -32,11 +32,11 @@ export default function (editor: Editor): HTMLElement {
       }
     },
     callback: function (pluginDom) {
-      if (hasClass(pluginDom, 'm-n-toolbar-active')) {
-        pluginDom.classList.remove('m-n-toolbar-active')
-      } else {
-        pluginDom.classList.add('m-n-toolbar-active')
-      }
+      // if (hasClass(pluginDom, 'm-n-toolbar-active')) {
+      //   pluginDom.classList.remove('m-n-toolbar-active')
+      // } else {
+      //   pluginDom.classList.add('m-n-toolbar-active')
+      // }
     }
   }
   let plugin = createPlugin(editor, pluginOption)

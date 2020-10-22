@@ -24,7 +24,7 @@ function MiniEditor(this: Editor, el: string, options?: Options) {
   let editorWrap = domCreateElement('div')
   editorWrap.appendChild(toolbarDom)
   editor.toolbarDom = toolbarDom
-  editor.savedRange = null
+  editor.savedRange = document.createRange()
   editorWrap.appendChild(container)
   editor.container = container
   editorWrap.style.width = options.width ? `${options.width}px` : '300px'

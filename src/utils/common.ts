@@ -12,12 +12,6 @@ export function error(val: any) {
   console.error(val)
 }
 
-//  未做浏览器兼容
-export function hasSelection(): boolean {
-  let selection = window.getSelection() as Selection
-  return selection.toString().trim().length ? true : false
-}
-
 export function clearActiveClass(el: string) {
   let toolbarItemDoms = domQuerySelectorAll(el)
   for (let index = 0; index < toolbarItemDoms.length; index++) {
