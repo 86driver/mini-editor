@@ -10,7 +10,8 @@ export default function (editor: Editor): HTMLElement {
     dropDownList: [
       { label: '红色', value: 'red' },
       { label: '绿色', value: 'green' },
-      { label: '蓝色', value: 'blue' }
+      { label: '蓝色', value: 'blue' },
+      { label: '黑色', value: 'black' }
     ],
     dropDownCallback: function (srcDom: HTMLElement, item: dropDownItems) {
       if (editor.savedRange) {

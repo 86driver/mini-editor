@@ -10,7 +10,7 @@ export default function (editor: Editor): HTMLElement {
     dropDownList: [
       { label: 'H1', value: 'H1' },
       { label: 'H2', value: 'H2' },
-      { label: '正文', value: 'H3' }
+      { label: '正文', value: 'P' }
     ],
     dropDownCallback: function (srcDom: HTMLElement, item: dropDownItems) {
       if (editor.savedRange) {
