@@ -12,11 +12,9 @@ export default function (editor: Editor): HTMLElement {
       { label: '绿色', value: 'green' },
       { label: '蓝色', value: 'blue' }
     ],
-    dropDownCallback: function (srcDom: HTMLElement, items: dropDownItems) {
+    dropDownCallback: function (srcDom: HTMLElement, item: dropDownItems) {
       if (editor.savedRange) {
-        let text = editor.savedRange.toString()
-        let fontDomString = `<font color="${items.value}">${text}</font>`
-        execCommand('insertHTML', false, fontDomString)
+        execCommand('foreColor', false, item.value)
       }
     },
     callback: function (pluginDom) {}

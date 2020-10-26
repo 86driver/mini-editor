@@ -16,18 +16,20 @@ export function createContainer(editor: Editor): HTMLElement {
     // todo 拆
     // 处理组件高亮状态
     // 加粗
+    const boldParentDom = ['B', 'H1', 'H2']
     let boldToolDom = domQuerySelector('.icon-bold').parentElement
-    if (
-      editor.savedRange.commonAncestorContainer.parentElement &&
-      editor.savedRange.commonAncestorContainer.parentElement.nodeName !== 'B'
-    ) {
+    let parentDom = editor.savedRange.commonAncestorContainer.parentElement
+      ? editor.savedRange.commonAncestorContainer.parentElement
+      : null
+    if (parentDom && boldParentDom.indexOf(parentDom.nodeName) === -1) {
       if (boldToolDom && hasClass(boldToolDom, 'm-n-toolbar-active')) {
         boldToolDom?.classList.remove('m-n-toolbar-active')
       }
     } else {
-      if (editor.savedRange.commonAncestorContainer.parentElement) {
+      if (parentDom) {
         if (boldToolDom && !hasClass(boldToolDom, 'm-n-toolbar-active')) {
           boldToolDom?.classList.add('m-n-toolbar-active')
+          console.log(2)
         }
       }
     }

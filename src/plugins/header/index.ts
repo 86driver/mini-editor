@@ -8,25 +8,14 @@ export default function (editor: Editor): HTMLElement {
     openType: 'dropDown',
     iconName: 'icon-header',
     dropDownList: [
-      { label: 'H1', value: 'red' },
-      { label: 'H2', value: 'green' },
-      { label: '正文', value: 'blue' }
+      { label: 'H1', value: 'H1' },
+      { label: 'H2', value: 'H2' },
+      { label: '正文', value: 'H3' }
     ],
-    dropDownCallback: function (srcDom: HTMLElement, items: dropDownItems) {
-      let text = editor.savedRange.toString()
-      let hDom = ``
-      switch (items.label) {
-        case 'H1':
-          hDom = `<h1>${text}</h1>`
-          break
-        case 'H2':
-          hDom = `<h2>${text}</h2>`
-          break
-        case '正文':
-          hDom = `<span>${text}</span>`
-          break
+    dropDownCallback: function (srcDom: HTMLElement, item: dropDownItems) {
+      if (editor.savedRange) {
+        execCommand('formatBlock', false, item.value)
       }
-      execCommand('insertHTML', false, hDom)
     },
     callback: function (pluginDom) {}
   }

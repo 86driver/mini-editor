@@ -4,6 +4,8 @@ import { domGetElementById } from '../utils/dom'
 const selection = window.getSelection() as Selection
 
 function getHtml(this: Editor) {
+  this.container.blur()
+  this.container.focus()
   return this.container.innerHTML
 }
 

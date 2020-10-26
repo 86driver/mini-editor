@@ -21,7 +21,6 @@ export function createPlugin(
   }
   if (pluginOptions.openType === 'dropDown') {
     pluginDom.onmouseenter = function () {
-      editor.restoreRange()
       let position = pluginDom.getBoundingClientRect()
       const yOffset = pluginDom.offsetHeight
       showDropDownTemp(pluginOptions, position, yOffset, editor)

@@ -18,6 +18,7 @@ export function showDropDownTemp(
     })
     // 事件代理item onclick
     dropDownTempDom.onclick = function (event) {
+      editor.restoreRange()
       let target = event.target
       let itemIndex = (target as HTMLElement).getAttribute('index') as string
       if (pluginOptions.dropDownCallback) {
