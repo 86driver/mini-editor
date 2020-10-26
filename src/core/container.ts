@@ -29,7 +29,6 @@ export function createContainer(editor: Editor): HTMLElement {
       if (parentDom) {
         if (boldToolDom && !hasClass(boldToolDom, 'm-n-toolbar-active')) {
           boldToolDom?.classList.add('m-n-toolbar-active')
-          console.log(2)
         }
       }
     }
