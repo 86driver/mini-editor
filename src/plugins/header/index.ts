@@ -4,7 +4,7 @@ import { execCommand } from '../../utils/dom'
 
 export default function (editor: Editor): HTMLElement {
   let pluginOption: pluginOptions = {
-    name: 'color',
+    name: 'header',
     openType: 'dropDown',
     iconName: 'icon-header',
     dropDownList: [
